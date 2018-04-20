@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>列表渲染及开发注意事项</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+</head>
+
+<body>
+	<div id="app">
+		<h1>movie list</h1>
+		<ul>
+			<li v-for="(title,index) in movies">{{title}}--{{index}}</li>
+		</ul>
+		<table>
+			<thead>
+				<td>名称</td>
+				<td>性别</td>
+			</thead>
+			<tbody>
+				<tr v-for="person in persons">
+					<td v-for="(name,prop,index) in person">
+						{{prop}}:{{name}}:{{index}}
+					</td>
+					<!-- <td>{{person.name}}</td>
+					<td>{{person.sex}}</td> -->
+				</tr>
+			</tbody>
+		</table>
+		<div>
+
+		</div>
+	</div>
+	<script>
+		var vm = new Vue({
+			el: "#app",
+			data: {
+				movies: ['怦然心动', '头号玩家'],
+				persons: [{
+					name: 'jack',
+					sex: 'male'
+				}, {
+					name: 'rose',
+					sex: 'female'
+				}]
+			}
+		})
+	</script>
+</body>
+
+</html>
